@@ -76,6 +76,12 @@ class sACNreceiver(ReceiverHandlerListener):
                 self._callbacks[trigger] = [func]
         else:
             raise TypeError(f'The given trigger "{trigger}" is not a valid one!')
+         
+     def remove_listener(self, universe: int) -> None:
+        """
+        Remove a callback on given universe
+        """
+        self._callbacks[universe] = ""
 
     def join_multicast(self, universe: int) -> None:
         """
